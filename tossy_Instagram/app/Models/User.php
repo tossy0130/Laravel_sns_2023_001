@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Symfony\Component\CssSelector\Node\FunctionNode;
 
 class User extends Authenticatable
 {
@@ -41,4 +42,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     *   ============ hasMany 設定 ============== User -> Post
+     */
+    public function posts()
+    {
+        // return $this->hasMany('App\Post');
+        return $this->hasMany('App\Models\Post');
+    }
+
+    /**
+     *  ============ hasMany 設定 ============== User -> Like
+     */
+    public function likes()
+    {
+        return $this->hasMany('App\Models\Like');
+    }
+
+    /**
+     *  ============ hasMany 設定 ============== User -> Comment
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }

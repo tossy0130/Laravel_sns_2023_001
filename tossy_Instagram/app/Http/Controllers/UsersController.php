@@ -9,7 +9,6 @@ use App\Models\User;
 
 // === Auth 読み込み
 use Illuminate\Support\Facades\Auth;
-
 // === Validator 読み込み
 use Illuminate\Support\Facades\Validator;
 
